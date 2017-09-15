@@ -7,17 +7,23 @@ php -S localhost:8080 ./web/graphql.php
 
 ```
 {
-  property(id: 2) {
+  property(id:2) {
     id
-    transaction,
+    transaction
     price {
-      amount
       currency
+      amount
     }
     location {
-      id
-      lat
+      lat,
       lng
+    }
+    createdAt {
+      date(format:"Y")
+    }
+    updatedAt {
+      timestamp
+      date
     }
   }
 }
