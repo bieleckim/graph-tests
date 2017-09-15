@@ -7,9 +7,13 @@ php -S localhost:8080 ./web/graphql.php
 
 ```
 {
-  property(id: 1) {
+  property(id: 2) {
     id
-    transaction
+    transaction,
+    price {
+      amount
+      currency
+    }
     location {
       id
       lat
