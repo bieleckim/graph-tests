@@ -14,7 +14,6 @@ class LocationType extends ObjectType
         $config = [
             'name' => 'Location',
             'fields' => [
-                'id' => Types::id(),
                 'lat' => Types::float(),
                 'lng' => Types::float()
             ],

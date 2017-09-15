@@ -9,6 +9,7 @@ use GraphQL\Type\Definition\IntType;
 use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\StringType;
 use GraphQL\Type\Definition\Type;
+use Re\GraphQL\Type\DateType;
 use Re\GraphQL\Type\Enum\TransactionEnum;
 use Re\GraphQL\Type\LocationType;
 use Re\GraphQL\Type\PriceType;
@@ -22,6 +23,7 @@ class Types
     private static $location;
     private static $transactionEnum;
     private static $price;
+    private static $date;
 
     public static function property(): PropertyType
     {
@@ -41,6 +43,11 @@ class Types
     public static function price(): PriceType
     {
         return self::$price ?: (self::$price = new PriceType());
+    }
+
+    public static function date(): DateType
+    {
+        return self::$date ?: (self::$date = new DateType());
     }
 
     public static function query(): QueryType

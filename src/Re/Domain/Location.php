@@ -4,20 +4,13 @@ namespace Re\Domain;
 
 class Location
 {
-    private $id;
     private $lat;
     private $lng;
 
-    public function __construct(string $id, float $lat, float $lng)
+    public function __construct(float $lat, float $lng)
     {
-        $this->id = $id;
         $this->lat = $lat;
         $this->lng = $lng;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
     }
 
     public function getLat(): float

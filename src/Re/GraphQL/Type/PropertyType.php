@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
 use MyCLabs\Enum\Enum;
+use Re\Domain\Property;
 use Re\GraphQL\Types;
 
 class PropertyType extends ObjectType
@@ -19,7 +20,9 @@ class PropertyType extends ObjectType
                 'id' => Types::id(),
                 'location' => Types::location(),
                 'transaction' => Types::transactionEnum(),
-                'price' => Types::price()
+                'price' => Types::price(),
+                'createdAt' => Types::date(),
+                'updatedAt' => Types::date(),
             ],
             'resolveField' => function($value, $args, $context, ResolveInfo $info) {
                 if ($info->returnType instanceof EnumType) {

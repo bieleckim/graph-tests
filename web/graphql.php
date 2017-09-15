@@ -36,21 +36,27 @@ try {
     $propertyRepository = new PropertyRepository([
         new Property(
             '1',
-            new Location('4', 52.237049, 21.017532),
+            new Location( 52.237049, 21.017532),
             Transaction::SALE(),
-            Money::PLN(200000)
+            Money::PLN(200000),
+            new DateTime('2010-05-17 10:28:12'),
+            new DateTime('2016-11-15 14:32:56')
         ),
         new Property(
             '2',
-            new Location('5', 50.061642, 19.939390),
+            new Location(50.061642, 19.939390),
             Transaction::SALE(),
-            Money::EUR(120500)
+            Money::EUR(120500),
+            new DateTime('2005-03-02 19:33:49'),
+            new DateTime('2008-02-21 16:45:31')
         ),
         new Property(
             '3',
-            new Location('6', 52.409538, 16.931992),
+            new Location( 52.409538, 16.931992),
             Transaction::RENT(),
-            Money::CHF(500)
+            Money::CHF(500),
+            new DateTime('2013-12-12 20:49:31'),
+            new DateTime('2017-09-07 10:00:03')
         )
     ]);
 

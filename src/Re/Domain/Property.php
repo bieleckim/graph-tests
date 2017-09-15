@@ -10,13 +10,17 @@ class Property
     private $location;
     private $transaction;
     private $price;
+    private $createdAt;
+    private $updatedAt;
 
-    public function __construct(string $id, Location $location, Transaction $transaction, Money $price)
+    public function __construct(string $id, Location $location, Transaction $transaction, Money $price, \DateTimeInterface $createdAt, \DateTimeInterface $updatedAt)
     {
         $this->id = $id;
         $this->location = $location;
         $this->transaction = $transaction;
         $this->price = $price;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
     }
 
     public function getId(): string
@@ -37,5 +41,15 @@ class Property
     public function getPrice(): Money
     {
         return $this->price;
+    }
+
+    public function getCreatedAt(): \DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): \DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }
