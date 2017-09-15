@@ -5,6 +5,7 @@ use GraphQL\FormattedError;
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
 use League\Container\Container;
+use Money\Money;
 use Re\Domain\Location;
 use Re\Domain\Property;
 use Re\Domain\Transaction;
@@ -33,9 +34,24 @@ try {
     $schema->assertValid();
 
     $propertyRepository = new PropertyRepository([
-        new Property('1', new Location('4', 52.237049, 21.017532), Transaction::SALE()),
-        new Property('2', new Location('5', 50.061642, 19.939390), Transaction::SALE()),
-        new Property('3', new Location('6', 52.409538, 16.931992), Transaction::RENT())
+        new Property(
+            '1',
+            new Location('4', 52.237049, 21.017532),
+            Transaction::SALE(),
+            Money::PLN(200000)
+        ),
+        new Property(
+            '2',
+            new Location('5', 50.061642, 19.939390),
+            Transaction::SALE(),
+            Money::EUR(120500)
+        ),
+        new Property(
+            '3',
+            new Location('6', 52.409538, 16.931992),
+            Transaction::RENT(),
+            Money::CHF(500)
+        )
     ]);
 
     $container = new Container();

@@ -7,9 +7,11 @@ use GraphQL\Type\Definition\FloatType;
 use GraphQL\Type\Definition\IDType;
 use GraphQL\Type\Definition\IntType;
 use GraphQL\Type\Definition\NonNull;
+use GraphQL\Type\Definition\StringType;
 use GraphQL\Type\Definition\Type;
 use Re\GraphQL\Type\Enum\TransactionEnum;
 use Re\GraphQL\Type\LocationType;
+use Re\GraphQL\Type\PriceType;
 use Re\GraphQL\Type\PropertyType;
 use Re\GraphQL\Type\QueryType;
 
@@ -19,6 +21,7 @@ class Types
     private static $property;
     private static $location;
     private static $transactionEnum;
+    private static $price;
 
     public static function property(): PropertyType
     {
@@ -35,9 +38,19 @@ class Types
         return self::$transactionEnum ?: (self::$transactionEnum = new TransactionEnum());
     }
 
+    public static function price(): PriceType
+    {
+        return self::$price ?: (self::$price = new PriceType());
+    }
+
     public static function query(): QueryType
     {
         return self::$query ?: (self::$query = new QueryType());
+    }
+
+    public static function string(): StringType
+    {
+        return Type::string();
     }
 
     public static function boolean(): BooleanType

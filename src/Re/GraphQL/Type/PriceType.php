@@ -6,20 +6,23 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
 use Re\GraphQL\Types;
 
-class LocationType extends ObjectType
+class PriceType extends ObjectType
 {
-
     public function __construct()
     {
         $config = [
-            'name' => 'Location',
+            'name' => 'Price',
             'fields' => [
-                'id' => Types::id(),
-                'lat' => Types::float(),
-                'lng' => Types::float()
+                'currency' => Types::string(),
+                'amount' => Types::int()
             ],
             'resolveField' => function($value, $args, $context, ResolveInfo $info) {
-                return $value->{'get' . ucfirst($info->fieldName)}();
+                $field = $value->{'get' . ucfirst($info->fieldName)}();
+                if ($info->fieldName === 'currency') {
+                    return $field->getCode();
+                }
+
+                return $field;
             }
         ];
 

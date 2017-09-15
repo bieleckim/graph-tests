@@ -18,7 +18,8 @@ class PropertyType extends ObjectType
             'fields' => [
                 'id' => Types::id(),
                 'location' => Types::location(),
-                'transaction' => Types::transactionEnum()
+                'transaction' => Types::transactionEnum(),
+                'price' => Types::price()
             ],
             'resolveField' => function($value, $args, $context, ResolveInfo $info) {
                 if ($info->returnType instanceof EnumType) {
